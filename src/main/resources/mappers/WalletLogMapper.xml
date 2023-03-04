@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rh.wallet.mapper.WalletLogMapper">
+
+    <insert id="insertLog" parameterType="com.rh.wallet.entity.WalletLog">
+        insert into tb_wallet_log(record_sn,uid,change_money,money,create_time,remark)
+        value(#{recordSn},#{uid},#{changeMoney},#{money},#{createTime},#{remark})
+    </insert>
+    <resultMap id="walletLogAndWalletRecord" type="com.rh.wallet.entity.WalletLog">
+        <id property="logId" column="log_id"/>
+        <result property="money" column="money"/>
+        <result property="changeMoney" column="change_money"/>
+        <result property="money" column="money"/>
+        <result property="createTime" column="create_time"/>
+        <result property="recordSn" column="record_sn"/>
+        <result property="remark" column="remark"/>
+        <collection property="walletLogRecord" ofType="com.rh.wallet.entity.WalletLogRecord"
+                    column="record_sn" select="com.rh.wallet.mapper.WalletLogRecordMapper.getByRecordSN"></collection>
+    </resultMap>
+    <select id="getByUid"  resultMap="walletLogAndWalletRecord">
+        SELECT * FROM tb_wallet_log where uid = #{uid}
+    </select>
+</mapper>

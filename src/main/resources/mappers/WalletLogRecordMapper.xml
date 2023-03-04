@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rh.wallet.mapper.WalletLogRecordMapper">
+
+    <insert id="insertRecord">
+        insert into tb_wallet_record(record_sn,wallet_type,money,pay_status,pay_time,fetch_status,fetch_time,remark)
+        value(#{recordSn},#{walletType},#{money},#{payStatus},#{payTime},#{fetchStatus},#{fetchTime},#{remark})
+    </insert>
+    <select id="getByRecordSN" resultType="com.rh.wallet.entity.WalletLogRecord">
+        select * from tb_wallet_record where record_sn = #{record_sn};
+    </select>
+</mapper>

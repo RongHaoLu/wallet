@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "255ff983-833d-4279-99eb-79d1de01443d",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "查询余额",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "消费",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/consume?pay_password=123456&uid=1&consumeMoney=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"consume"
+					],
+					"query": [
+						{
+							"key": "pay_password",
+							"value": "123456"
+						},
+						{
+							"key": "uid",
+							"value": "1"
+						},
+						{
+							"key": "consumeMoney",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "退款",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "查询明细",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
